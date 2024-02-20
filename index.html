@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Color change button</title>
+    <style>
+        body {
+            text-align: center;
+            background: rgb(70,176,199);
+            background: radial-gradient(circle, rgba(70,176,199,1) 0%, rgba(221,250,230,1) 100%);
+        }
+        .color-change-button {
+            background-color: blue;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .calculator {
+            display: inline-block;
+            text-align: left;
+            width: 200px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        input[type="number"], button {
+            margin-bottom: 5px;
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        window.onload = function() {
+            alert("Welcome to the webpage!");
+        };
+    </script>
+
+    <h2>Change Button Color</h2>
+    <button class="color-change-button" onclick="changeColor()">Click Me</button>
+
+    <h2>Greeting Based on Time</h2>
+    <button class="color-change-button" onclick="displayGreeting()">Display Greeting</button>
+
+    <h2>Basic Calculator</h2>
+    <div class="calculator">
+        <input type="number" id="num1" placeholder="Enter number 1">
+        <input type="number" id="num2" placeholder="Enter number 2">
+        <button onclick="calculate()">Add</button>
+        <p id="result"></p>
+    </div>
+
+    <script>
+        function changeColor() {
+            var button = document.querySelector('.color-change-button');
+            var currentColor = button.style.backgroundColor;
+            var newColor = currentColor === 'blue' ? 'red' : 'blue';
+            button.style.backgroundColor = newColor;
+        }
+
+        function displayGreeting() {
+            var currentTime = new Date().getHours();
+            var greeting;
+            if (currentTime < 12) {
+                greeting = "Good morning!";
+            } else if (currentTime < 18) {
+                greeting = "Good afternoon!";
+            } else {
+                greeting = "Good evening!";
+            }
+            alert(greeting);
+        }
+
+        function calculate() {
+            var num1 = parseFloat(document.getElementById("num1").value);
+            var num2 = parseFloat(document.getElementById("num2").value);
+            var result = num1 + num2;
+            document.getElementById("result").innerHTML = "Result: " + result;
+        }
+    </script>
+</body>
+</html>
